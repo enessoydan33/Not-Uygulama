@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Kayıt Page";
+}
+@model KayitData
+
+@Html.Partial("_ValidationScriptsPartial")
+
+<div class="row">
+    <div class="col-12">
+        <h1>Login</h1>
+        <form asp-action="Kayit" asp-controller="User" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Isim" class="form-label"></label>
+                <input asp-for="Isim" class="form-control">
+                <span asp-validation-for="Isim" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Soyad" class="form-label"></label>
+                <input asp-for="Soyad" class="form-control">
+                <span asp-validation-for="Soyad" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" class="form-control">
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary"></button>
+
+            </form>
+        

@@ -1,0 +1,41 @@
+﻿@model List<Not>
+@{
+    ViewBag.Title = "Notlar";
+}
+
+@foreach (var item in Model)
+{
+    <div class="card mb-3">
+       
+        <div class="card-header">
+            @item.Baslık
+        </div>
+        <div class="card-body">
+            <p class="card-text">@item.acıklama</p>
+
+           
+            <p class="card-text">
+                @if (item.Durum)
+                {
+                    <span class="text-success">Tamamlandı</span>  
+                }
+                else
+                {
+                    <span class="text-danger">Tamamlanmadı</span> 
+                }
+            </p>
+            <p class="card-text">@item.Tarih</p>
+           
+            @foreach(var tag in item.Tags)
+            {   
+                    <a href="/Not/TagListele/@tag.Id" class="nav-link text-truncate">@tag.Name</a>
+               
+           }
+
+           <div>
+            <a href="/Not/Update/@item.Id" class="btn btn-sm btn-primary">Güncelle</a>
+            <a href="/Not/Delete/@item.Id" class="btn btn-sm btn-danger">Sil</a>
+            </div>
+        </div>
+    </div> 
+}

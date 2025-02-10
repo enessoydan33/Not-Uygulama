@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Not Page";
+}
+@model NotData
+
+
+<div class="row">
+
+    <div class="col-12">
+        <h1>Not Ekle</h1>
+        
+        <form asp-action="Not" asp-controller="User" method="post">
+            <div asp-validation-summary="All" class="text-danger" ></div>
+            
+            <div class="mb-3">
+                <label asp-for="acıklama" class="form-label"></label>
+                <input asp-for="acıklama" class="form-control">
+                <span asp-validation-for="acıklama" class="text-danger"></span>
+            </div>
+           
+           <div class=" mb-3">
+                <label asp-for="Baslık" class="form-label"></label>
+                <input asp-for="Baslık" class="form-control">
+                <span asp-validation-for="Baslık" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Tags" class="form-label">Etiketler</label>
+                <select asp-for="Tags" asp-items="ViewBag.Tags" class="form-select" multiple>  
+                   
+                </select>
+                <span asp-validation-for="Tags" class="text-danger"></span>
+                </div>
+
+            <button type="submit" class="btn btn-primary">Kayıt</button>
+
+        </form>
+       
+
+
+
+
+    </div>
+
+
+
+
+
+
+</div>

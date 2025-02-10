@@ -1,0 +1,36 @@
+﻿@model List<Not>
+
+@foreach (var item in Model)
+{
+    <div class="card mb-3">
+        <!-- Kartlar arası boşluk için mb-3 eklendi -->
+        <div class="card-header">
+            @item.Baslık
+        </div>
+        <div class="card-body">
+            <p class="card-text">@item.acıklama</p>
+
+            <!-- Durum kontrolü yapılır -->
+            <p class="card-text">
+                @if (item.Durum)
+                {
+                    <span class="text-success">Tamamlandı</span>
+                }
+                else
+                {
+                    <span class="text-danger">Tamamlanmadı</span>
+                }
+            </p>
+            <p class="card-text">@item.Tarih</p>
+
+            @foreach (var tag in item.Tags)
+            {
+                <a href="/Not/TagListele/@tag.Id" class="card-text">@tag.Name</a>
+            }
+
+
+            <a href="/Not/Update/@item.Id" class="btn btn-sm btn-primary">Güncelle</a>
+            <a href="/Not/Delete/@item.Id" class="btn btn-sm btn-danger">Sil</a>
+        </div>
+    </div> <!-- Eksik kapanan div tamamlandı -->
+}
